@@ -59,13 +59,29 @@ class PeopleTable extends React.Component {
         this.setState({ isEditMode: true, person: p});
     }
 
+    onUpdateClick = () => {
+
+    }
+
+    onCancelClick = () => {
+        this.setState({
+            person: {
+                id: '',
+                firstName: '',
+                lastName: '',
+                age: ''
+            },
+            isEditMode: false
+        })
+    }
+
     render() {
         const { people, person, isAdding } = this.state;
         return (
             <div className="container" style={{ marginTop: 60 }}>
                 <PersonForm
                     isAdding={isAdding}
-                    person={this.state.person}
+                    person={person}
                     onFirstNameChange={this.onTextChange}
                     onLastNameChange={this.onTextChange}
                     onAgeChange={this.onTextChange}
