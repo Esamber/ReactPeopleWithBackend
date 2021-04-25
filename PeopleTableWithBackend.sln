@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleTableWithBackend.Web", "PeopleTableWithBackend.Web\PeopleTableWithBackend.Web.csproj", "{18985D4A-D081-43E5-8DC4-922A2109ECE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleTableWithBackend.Data", "PeopleTableWithBackend.Data\PeopleTableWithBackend.Data.csproj", "{0F69E894-FAEE-4C67-A295-BB94984DF28D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18985D4A-D081-43E5-8DC4-922A2109ECE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18985D4A-D081-43E5-8DC4-922A2109ECE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18985D4A-D081-43E5-8DC4-922A2109ECE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18985D4A-D081-43E5-8DC4-922A2109ECE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F69E894-FAEE-4C67-A295-BB94984DF28D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F69E894-FAEE-4C67-A295-BB94984DF28D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F69E894-FAEE-4C67-A295-BB94984DF28D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F69E894-FAEE-4C67-A295-BB94984DF28D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B5AAE07-A4D3-45EC-B8E8-AB8F82910287}
+	EndGlobalSection
+EndGlobal
