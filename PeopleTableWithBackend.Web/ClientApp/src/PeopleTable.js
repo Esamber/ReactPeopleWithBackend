@@ -9,7 +9,6 @@ class PeopleTable extends React.Component {
     state = {
         people: [],
         person: {
-            id: '',
             firstName: '',
             lastName: '',
             age: ''
@@ -45,8 +44,8 @@ class PeopleTable extends React.Component {
         });
     }
 
-    onDeleteClick = (p) => {
-        axios.post('/api/people/delete', p.id).then(() => {
+    onDeleteClick = (selectedPerson) => {
+        axios.post('/api/people/delete', selectedPerson.id).then(() => {
             axios.get('api/people/getpeople').then(({ data }) => {
                 this.setState({
                     people: data
@@ -55,8 +54,8 @@ class PeopleTable extends React.Component {
         })
     }
 
-    onEditClick = (p) => {
-        this.setState({ isEditMode: true, person: p});
+    onEditClick = (selectedPerson) => {
+        this.setState({ isEditMode: true, person: selectedPerson });
     }
 
     onUpdateClick = () => {

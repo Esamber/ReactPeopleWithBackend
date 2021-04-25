@@ -16,7 +16,7 @@ class PersonForm extends React.Component {
                     <input type="number" className="form-control" value={person.age} onChange={onAgeChange} placeholder="Age" name="age" />
                 </div>
                 <div className="col-md-3">
-                    {!isEditMode && <button className="btn btn-primary btn-block" onClick={onAddClick}>Add</button>}
+                    {!isEditMode && <button className="btn btn-primary btn-block" onClick={onAddClick}>Add </button>}
                     {!!isEditMode && <button className="btn btn-warning btn-block" onClick={onUpdateClick}>Update</button>}
                     {!!isEditMode && <button className="btn btn-info btn-block" onClick={onCancelClick}>Cancel</button>}
                 </div>
