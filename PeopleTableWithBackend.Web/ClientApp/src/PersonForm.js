@@ -5,7 +5,7 @@ class PersonForm extends React.Component {
     render() {
         const { person, isEditMode, onFirstNameChange, onLastNameChange, onAgeChange, onUpdateClick, onCancelClick, onAddClick } = this.props;
         return (
-            <div className="row jumbotron">
+            <div className="row">
                 <div className="col-md-3">
                     <input type="text" className="form-control" value={person.firstName} onChange={onFirstNameChange} placeholder="First Name" name="firstName" />
                 </div>

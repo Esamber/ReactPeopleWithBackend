@@ -44,8 +44,9 @@ class PeopleTable extends React.Component {
         });
     }
 
-    onDeleteClick = (selectedPerson) => {
-        axios.post('/api/people/delete', selectedPerson.id).then(() => {
+    onDeleteClick = (e) => {
+        vconsole.log(e.target.id)
+        axios.post('/api/people/delete', e.target.id).then(() => {
             axios.get('api/people/getpeople').then(({ data }) => {
                 this.setState({
                     people: data
@@ -89,6 +90,9 @@ class PeopleTable extends React.Component {
                     onUpdateClick={this.onUpdateClick}
                     onCancelClick={this.onCancelClick}
                 />
+                <br/>
+                <hr />
+                <br/>
                 <table className="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>

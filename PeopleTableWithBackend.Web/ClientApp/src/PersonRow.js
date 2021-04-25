@@ -5,7 +5,7 @@ class PersonRow extends React.Component {
     render() {
         const { person, onEditClick, onDeleteClick } = this.props;
         return (
-            <tr key={this.props.person.id}>
+            <tr key={person.id}>
                 <td></td>
                 <td>{person.firstName}</td>
                 <td>{person.lastName}</td>
@@ -13,7 +13,7 @@ class PersonRow extends React.Component {
                 <td>
                     <button type="button" className="btn btn-warning" onClick={onEditClick}>Edit</button>
                     &nbsp;&nbsp;&nbsp;
-                    <button type="button" className="btn btn-danger" onClick={onDeleteClick}>Delete</button>
+                    <button type="button" className="btn btn-danger" onClick={onDeleteClick} id={person.id}>Delete</button>
                 </td>
             </tr>
         );
