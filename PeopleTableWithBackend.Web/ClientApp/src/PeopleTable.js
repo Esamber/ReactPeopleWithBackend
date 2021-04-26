@@ -44,9 +44,8 @@ class PeopleTable extends React.Component {
         });
     }
 
-    onDeleteClick = (e) => {
-        console.log(e.target.id)
-        axios.post('/api/people/delete', e.target.id).then(() => {
+    onDeleteClick = (p) => {
+        axios.post('/api/people/delete', p).then(() => {
             axios.get('api/people/getpeople').then(({ data }) => {
                 this.setState({
                     people: data

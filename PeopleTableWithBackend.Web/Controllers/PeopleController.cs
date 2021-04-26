@@ -39,10 +39,10 @@ namespace PeopleTableWithBackend.Web.Controllers
 
         [HttpPost]
         [Route("delete")]
-        public void Delete(int id)
+        public void Delete(Person p)
         {
             var repo = new PeopleRepository(_connectionString);
-            repo.Delete(id);
+            repo.Delete(p.Id);
         }
     }
 }

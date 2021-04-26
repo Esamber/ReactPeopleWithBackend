@@ -13,7 +13,7 @@ class PersonRow extends React.Component {
                 <td>
                     <button type="button" className="btn btn-warning" onClick={onEditClick}>Edit</button>
                     &nbsp;&nbsp;&nbsp;
-                    <button type="button" className="btn btn-danger" onClick={onDeleteClick} id={person.id}>Delete</button>
+                    <button type="button" className="btn btn-danger" onClick={onDeleteClick}>Delete</button>
                 </td>
             </tr>
         );
