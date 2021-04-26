@@ -126,7 +126,7 @@ class PeopleTable extends React.Component {
                     <thead>
                         <tr>
                             <th>
-                                <button className="btn btn-danger btn-block" onClick={this.onDeleteAllClick}>Delete All</button>
+                                {/*<button className="btn btn-danger btn-block" onClick={this.onDeleteAllClick}>Delete All</button>*/}
                             </th>
                             <th>First Name</th>
                             <th>Last Name</th>

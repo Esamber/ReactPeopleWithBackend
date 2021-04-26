@@ -7,7 +7,7 @@ class PersonRow extends React.Component {
         return (
             <tr key={person.id}>
                 <td>
-                    <input type="checkbox" className="form-check form-control" onChange={onCheckboxChange} checked={isChecked} />
+                    {/*<input type="checkbox" className="form-check form-control" onChange={onCheckboxChange} checked={isChecked} />*/}
                 </td>
                 <td>{person.firstName}</td>
                 <td>{person.lastName}</td>
