@@ -38,11 +38,30 @@ namespace PeopleTableWithBackend.Web.Controllers
         }
 
         [HttpPost]
-        [Route("delete")]
+        [Route("Delete")]
         public void Delete(Person p)
         {
             var repo = new PeopleRepository(_connectionString);
             repo.Delete(p.Id);
+        }
+
+        [HttpPost]
+        [Route("DeleteAll")]
+        public void DeleteAll(List<Person> people)
+        {
+            var repo = new PeopleRepository(_connectionString);
+            foreach(Person p in people)
+            {
+                repo.Delete(p.Id);
+            }
+        }
+
+        [HttpPost]
+        [Route("Update")]
+        public void Update(Person p)
+        {
+            var repo = new PeopleRepository(_connectionString);
+            repo.UpdatePerson(p);
         }
     }
 }

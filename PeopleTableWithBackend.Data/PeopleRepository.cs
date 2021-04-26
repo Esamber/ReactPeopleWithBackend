@@ -39,5 +39,13 @@ namespace PeopleTableWithBackend.Data
             using var ctx = new PeopleDbContext(_connectionString);
             return ctx.People.FirstOrDefault(p => p.Id == id);
         }
+
+        public void UpdatePerson(Person p)
+        {
+            using var ctx = new PeopleDbContext(_connectionString);
+            ctx.People.Attach(p);
+            ctx.Entry(p).State = EntityState.Modified;
+            ctx.SaveChanges();
+        }
     }
 }

@@ -14,7 +14,8 @@ class PeopleTable extends React.Component {
             age: ''
         },
         isAdding: false,
-        isEditMode: false
+        isEditMode: false,
+        checkedPeople: []
     }
 
     componentDidMount = () => {
@@ -31,7 +32,6 @@ class PeopleTable extends React.Component {
     }
 
     onAddClick = () => {
-        console.log(this.state);
         this.setState({ isAdding: true });
         axios.post('/api/people/add', this.state.person).then(() => {
             axios.get('/api/people/getpeople').then(({ data }) => {
@@ -54,12 +54,22 @@ class PeopleTable extends React.Component {
         })
     }
 
-    onEditClick = (selectedPerson) => {
-        this.setState({ isEditMode: true, person: selectedPerson });
+    onEditClick = (p) => {
+        this.setState({ isEditMode: true, person: p });
     }
 
     onUpdateClick = () => {
-
+        this.setState({ isAdding: true });
+        axios.post('/api/people/update', this.state.person).then(() => {
+            axios.get('/api/people/getpeople').then(({ data }) => {
+                this.setState({
+                    people: data,
+                    person: { firstName: '', lastName: '', age: '' },
+                    isAdding: false,
+                    isEditMode: false
+                });
+            });
+        });
     }
 
     onCancelClick = () => {
@@ -74,8 +84,28 @@ class PeopleTable extends React.Component {
         })
     }
 
+    onCheckBoxChange = (checkedP) => {
+        if (this.state.checkedPeople.find(p => p.id === checkedP.id))  {
+            this.setState({ checkedPeople: [...this.state.checkedPeople, checkedP] })
+        } else {
+            let filteredArray = this.state.checkedPeople.filter(p => p.id !== checkedP.id);
+            this.setState({ checkedPeople: filteredArray });
+        }
+    }
+
+    onDeleteAllClick = () => {
+        axios.post('/api/people/deleteall', this.state.checkedPeople).then(() => {
+            axios.get('api/people/getpeople').then(({ data }) => {
+                this.setState({
+                    people: data,
+                    checkedPeople: []
+                })
+            })
+        })
+    }
+
     render() {
-        const { people, person, isAdding } = this.state;
+        const { people, person, isAdding, checkedPeople } = this.state;
         return (
             <div className="container" style={{ marginTop: 60 }}>
                 <PersonForm
@@ -86,7 +116,7 @@ class PeopleTable extends React.Component {
                     onAgeChange={this.onTextChange}
                     onAddClick={this.onAddClick}
                     isEditMode={this.state.isEditMode}
-                    onUpdateClick={this.onUpdateClick}
+                    onUpdateClick={() => this.onUpdateClick(person)}
                     onCancelClick={this.onCancelClick}
                 />
                 <br/>
@@ -95,7 +125,9 @@ class PeopleTable extends React.Component {
                 <table className="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>
+                                <button className="btn btn-danger btn-block" onClick={this.onDeleteAllClick}>Delete All</button>
+                            </th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Age</th>
@@ -107,8 +139,10 @@ class PeopleTable extends React.Component {
                             return <PersonRow
                                 person={p}
                                 key={p.id}
-                                onEditClick={this.onEditClick}
-                                onDeleteClick={this.onDeleteClick}
+                                onEditClick={() => this.onEditClick(p)}
+                                onDeleteClick={() => this.onDeleteClick(p)}
+                                onCheckBoxChange={() => this.onCheckBoxChange(p)}
+                                isChecked={checkedPeople.includes(p)}
                             />
                         })}
                     </tbody>
