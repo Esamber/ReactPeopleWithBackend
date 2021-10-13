@@ -84,25 +84,25 @@ class PeopleTable extends React.Component {
         })
     }
 
-    onCheckBoxChange = (checkedP) => {
-        if (this.state.checkedPeople.find(p => p.id === checkedP.id))  {
-            this.setState({ checkedPeople: [...this.state.checkedPeople, checkedP] })
-        } else {
-            let filteredArray = this.state.checkedPeople.filter(p => p.id !== checkedP.id);
-            this.setState({ checkedPeople: filteredArray });
-        }
-    }
+    //onCheckBoxChange = (checkedP) => {
+    //    if (this.state.checkedPeople.find(p => p.id === checkedP.id))  {
+    //        this.setState({ checkedPeople: [...this.state.checkedPeople, checkedP] })
+    //    } else {
+    //        let filteredArray = this.state.checkedPeople.filter(p => p.id !== checkedP.id);
+    //        this.setState({ checkedPeople: filteredArray });
+    //    }
+    //}
 
-    onDeleteAllClick = () => {
-        axios.post('/api/people/deleteall', this.state.checkedPeople).then(() => {
-            axios.get('api/people/getpeople').then(({ data }) => {
-                this.setState({
-                    people: data,
-                    checkedPeople: []
-                })
-            })
-        })
-    }
+    //onDeleteAllClick = () => {
+    //    axios.post('/api/people/deleteall', this.state.checkedPeople).then(() => {
+    //        axios.get('api/people/getpeople').then(({ data }) => {
+    //            this.setState({
+    //                people: data,
+    //                checkedPeople: []
+    //            })
+    //        })
+    //    })
+    //}
 
     render() {
         const { people, person, isAdding, checkedPeople } = this.state;
@@ -125,9 +125,9 @@ class PeopleTable extends React.Component {
                 <table className="table table-bordered table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>
-                                {/*<button className="btn btn-danger btn-block" onClick={this.onDeleteAllClick}>Delete All</button>*/}
-                            </th>
+                            {/* <th>
+                                <button className="btn btn-danger btn-block" onClick={this.onDeleteAllClick}>Delete All</button>
+                            </th>*/}
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Age</th>

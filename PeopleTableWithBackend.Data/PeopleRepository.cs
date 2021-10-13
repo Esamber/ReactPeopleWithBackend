@@ -25,6 +25,7 @@ namespace PeopleTableWithBackend.Data
         {
             using var ctx = new PeopleDbContext(_connectionString);
             ctx.People.Add(person);
+
             ctx.SaveChanges();
         }
 
